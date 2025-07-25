@@ -5,7 +5,7 @@ services:
     build: ./tomcat-app
     container_name: tomcat-app
     ports:
-      - "8888:8080"
+      - "9999:8080"
     depends_on:
       - db
 
