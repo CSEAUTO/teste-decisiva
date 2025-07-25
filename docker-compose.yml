@@ -14,7 +14,7 @@ services:
     container_name: postgres95
     environment:
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+      POSTGRES_PASSWORD: Teste@123
       POSTGRES_DB: mydb
     ports:
       - "5432:5432"
