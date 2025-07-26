@@ -5,6 +5,7 @@ services:
     build: ./tomcat-app
     container_name: tomcat-app
     ports:
+      externo : interno
       - "9999:8080"
     depends_on:
       - db
@@ -19,6 +20,7 @@ services:
     ports:
       - "7777:5432"
     volumes:
+        interno : externo
       - pgdata:/var/lib/postgresql/data
 
 volumes:
