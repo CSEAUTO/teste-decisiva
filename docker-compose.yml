@@ -13,6 +13,8 @@ services:
       - "${TOMCAT_PORT:-9999}:8080"
     depends_on:
       - db
+    environment:
+      TOMCAT_PORT: ${TOMCAT_PORT:-9999}
 
   db:
     image: postgres:9.5
