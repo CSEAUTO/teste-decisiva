@@ -2,8 +2,13 @@ version: "3.8"
 
 services:
   tomcat:
-    build: ./tomcat-app
-    container_name: ${TOMCAT_CONTAINER_NAME:-tomcat-app}
+    build:
+      context: ./tomcat-app
+      args:
+        TOMCAT_VERSION: ${TOMCAT_VERSION:-8.5.96}
+        TOMCAT_URL: ${TOMCAT_URL:-https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.96/bin/apache-tomcat-8.5.96.tar.gz}
+        TOMCAT_ADMIN_USER: ${TOMCAT_ADMIN_USER:-admin}
+        TOMCAT_ADMIN_PASSWORD: ${TOMCAT_ADMIN_PASSWORD:-admin}
     ports:
       - "${TOMCAT_PORT:-9999}:8080"
     depends_on:
@@ -11,7 +16,6 @@ services:
 
   db:
     image: postgres:9.5
-    container_name: ${POSTGRES_CONTAINER_NAME:-postgres95}
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-admin}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
@@ -23,4 +27,3 @@ services:
 
 volumes:
   pgdata:
-
