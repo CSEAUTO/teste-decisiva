@@ -20,6 +20,16 @@ COPY tomcat-users.xml /opt/tomcat/conf/
 # Remove restrição de IP do Manager App (libera acesso externo)
 RUN sed -i 's|allow=".*"|allow=".*"|' /opt/tomcat/webapps/manager/META-INF/context.xml
 
+# Aumenta limite de upload do manager
+COPY web.xml /opt/tomcat/webapps/manager/WEB-INF/web.xm
+
+# Remove ROOT padrão
+RUN rm -rf /opt/tomcat/webapps/ROOT*
+
+# Copia e extrai hello.zip como aplicação
+COPY hello.zip /tmp/hello.zip
+RUN unzip /tmp/hello.zip -d /opt/tomcat/webapps/hello && rm /tmp/hello.zip
+
 # Expõe a porta do Tomcat
 EXPOSE 8080
 
