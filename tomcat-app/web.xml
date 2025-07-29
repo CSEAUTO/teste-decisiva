@@ -1,0 +1,7 @@
+<web-app>
+  <multipart-config>
+    <max-file-size>300000000</max-file-size> <!-- 300 MB -->
+    <max-request-size>300000000</max-request-size>
+    <file-size-threshold>0</file-size-threshold>
+  </multipart-config>
+</web-app>
