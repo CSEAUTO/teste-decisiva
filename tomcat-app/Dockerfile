@@ -27,8 +27,8 @@ COPY web.xml /opt/tomcat/webapps/manager/WEB-INF/web.xm
 RUN rm -rf /opt/tomcat/webapps/ROOT*
 
 # Copia e extrai hello.zip como aplicação
-COPY hello.zip /tmp/hello.zip
-RUN unzip /tmp/hello.zip -d /opt/tomcat/webapps/hello && rm /tmp/hello.zip
+# COPY hello.zip /tmp/hello.zip
+# RUN unzip /tmp/hello.zip -d /opt/tomcat/webapps/hello && rm /tmp/hello.zip
 
 # Expõe a porta do Tomcat
 EXPOSE 8080
