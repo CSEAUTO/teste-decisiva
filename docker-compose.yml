@@ -17,7 +17,7 @@ services:
       TOMCAT_PORT: ${TOMCAT_PORT:-9999}
 
   db:
-    image: postgres:11.22
+    image: postgres:11
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: Maker@1
